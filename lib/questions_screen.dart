@@ -45,7 +45,7 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
                 answerText: answer,
                 onTap: answerQuestion,
               );
-            })
+            }),
           ],
         ),
       ),
