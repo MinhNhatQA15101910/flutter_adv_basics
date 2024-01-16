@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 class QuestionIdentifier extends StatelessWidget {
   const QuestionIdentifier({
     super.key,
-    required this.questionIndex,
     required this.isCorrectAnswer,
+    required this.questionIndex,
   });
 
   final int questionIndex;
@@ -13,7 +13,6 @@ class QuestionIdentifier extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final questionNumber = questionIndex + 1;
-
     return Container(
       width: 30,
       height: 30,
@@ -27,8 +26,8 @@ class QuestionIdentifier extends StatelessWidget {
       child: Text(
         questionNumber.toString(),
         style: const TextStyle(
-          color: Color.fromARGB(255, 22, 2, 56),
           fontWeight: FontWeight.bold,
+          color: Color.fromARGB(255, 22, 2, 56),
         ),
       ),
     );

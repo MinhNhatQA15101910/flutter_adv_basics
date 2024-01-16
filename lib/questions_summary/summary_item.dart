@@ -1,6 +1,7 @@
-import 'package:adv_basics/questions_summary/question_identifier.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+
+import 'package:adv_basics/questions_summary/question_identifier.dart';
 
 class SummaryItem extends StatelessWidget {
   const SummaryItem(this.itemData, {super.key});
@@ -13,25 +14,21 @@ class SummaryItem extends StatelessWidget {
         itemData['user_answer'] == itemData['correct_answer'];
 
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 8),
+      padding: const EdgeInsets.symmetric(
+        vertical: 8,
+      ),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // Index identifier
           QuestionIdentifier(
-            questionIndex: itemData['question_index'] as int,
             isCorrectAnswer: isCorrectAnswer,
+            questionIndex: itemData['question'] as int,
           ),
-
-          // Blank space with width = 20
           const SizedBox(width: 20),
-
-          // Question information
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                // Question text
                 Text(
                   itemData['question'] as String,
                   style: GoogleFonts.lato(
@@ -40,25 +37,17 @@ class SummaryItem extends StatelessWidget {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-
-                // Blank space with height = 5
-                const SizedBox(height: 5),
-
-                // User answer
-                Text(
-                  itemData['user_answer'] as String,
-                  style: const TextStyle(
-                    color: Color.fromARGB(255, 202, 171, 252),
-                  ),
+                const SizedBox(
+                  height: 5,
                 ),
-
-                // Correct answer
-                Text(
-                  itemData['correct_answer'] as String,
-                  style: const TextStyle(
-                    color: Color.fromARGB(255, 181, 254, 246),
-                  ),
-                ),
+                Text(itemData['user_answer'] as String,
+                    style: const TextStyle(
+                      color: Color.fromARGB(255, 202, 171, 252),
+                    )),
+                Text(itemData['correct_answer'] as String,
+                    style: const TextStyle(
+                      color: Color.fromARGB(255, 181, 254, 246),
+                    )),
               ],
             ),
           ),
